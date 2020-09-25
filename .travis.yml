@@ -44,5 +44,5 @@
     - export DATE="$(date +'%Y%m%d.%H%M')"
     - export GIT_SHA="$(git rev-parse --short HEAD)"
     - export KUBE_CONSTRAINTS=">= 1.14, <= 1.18"
-    - docker pull alpine:3.11
-    - docker run --rm alpine:3.11 ls 
+    - docker pull alpine:latest
+    - docker run --rm alpine:latest ls 
