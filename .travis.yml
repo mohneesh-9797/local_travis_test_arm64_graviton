@@ -44,4 +44,5 @@
     - export DATE="$(date +'%Y%m%d.%H%M')"
     - export GIT_SHA="$(git rev-parse --short HEAD)"
     - export KUBE_CONSTRAINTS=">= 1.14, <= 1.18"
-    - source ./travis-scripts/build_develop.sh "${API_IMAGE}" "${API_FOLDER}" "${GIT_SHA}" "${DATE}"
+    - docker pull alpine:3.11
+    - docker run --rm alpine:3.11 ls 
