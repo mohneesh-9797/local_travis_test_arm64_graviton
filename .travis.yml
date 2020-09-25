@@ -1,0 +1,47 @@
+ os: linux
+ dist: focal
+ sudo: required
+ group: edge
+ arch: arm64-graviton2
+ virt: vm
+ services:
+      - docker
+ script: 
+    - export CLI_FOLDER="cli/"
+    - export API_IMAGE="keptn/api"
+    - export API_FOLDER="api/"
+    - export OS_ROUTE_SVC_IMAGE="keptn/openshift-route-service"
+    - export OS_ROUTE_SVC_FOLDER="platform-support/openshift-route-service/"
+    - export BRIDGE_IMAGE="keptn/bridge2"
+    - export BRIDGE_FOLDER="bridge/"
+    - export JMETER_SVC_IMAGE="keptn/jmeter-service"
+    - export JMETER_SVC_FOLDER="jmeter-service/"
+    - export HELM_SVC_IMAGE="keptn/helm-service"
+    - export HELM_SVC_FOLDER="helm-service/"
+    - export GATEKEEPER_SVC_IMAGE="keptn/gatekeeper-service"
+    - export GATEKEEPER_SVC_FOLDER="gatekeeper-service/"
+    - export DISTRIBUTOR_IMAGE="keptn/distributor"
+    - export DISTRIBUTOR_FOLDER="distributor/"
+    - export EVENTBROKER_IMAGE="keptn/eventbroker-go"
+    - export EVENTBROKER_FOLDER="eventbroker/"
+    - export SHIPYARD_SVC_IMAGE="keptn/shipyard-service"
+    - export SHIPYARD_SVC_FOLDER="shipyard-service/"
+    - export SHIPYARD_CONTROLLER_IMAGE="keptn/shipyard-controller"
+    - export SHIPYARD_CONTROLLER_FOLDER="shipyard-controller/"
+    - export CONFIGURATION_SVC_IMAGE="keptn/configuration-service"
+    - export CONFIGURATION_SVC_FOLDER="configuration-service/"
+    - export REMEDIATION_SVC_IMAGE="keptn/remediation-service"
+    - export REMEDIATION_SVC_FOLDER="remediation-service/"
+    - export LIGHTHOUSE_SVC_IMAGE="keptn/lighthouse-service"
+    - export LIGHTHOUSE_SVC_FOLDER="lighthouse-service/"
+    - export MONGODB_DS_IMAGE="keptn/mongodb-datastore"
+    - export MONGODB_DS_FOLDER="mongodb-datastore/"
+    - export INSTALLER_FOLDER="installer/"
+    - export KEPTN_INSTALLER_VERSION=latest
+    - export KEPTN_CLI_VERSION=latest
+    - export TZ=Europe/Vienna
+    - export VERSION="unknownversion"
+    - export DATE="$(date +'%Y%m%d.%H%M')"
+    - export GIT_SHA="$(git rev-parse --short HEAD)"
+    - export KUBE_CONSTRAINTS=">= 1.14, <= 1.18"
+    - source ./travis-scripts/build_develop.sh "${API_IMAGE}" "${API_FOLDER}" "${GIT_SHA}" "${DATE}"
