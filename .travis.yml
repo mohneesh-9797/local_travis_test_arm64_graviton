@@ -7,5 +7,5 @@
  services:
       - docker
  script: 
-    - docker pull ubuntu:latest
-    - docker run --rm ubuntu:latest ls 
+    - docker pull arm64v8/ubuntu
+    - docker run --rm arm64v8/ubuntu:latest ls
