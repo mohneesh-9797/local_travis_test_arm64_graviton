@@ -3,7 +3,7 @@
  sudo: required
  group: edge
  arch: arm64-graviton2
- virt: vm
+ virt: lxd
  services:
       - docker
  script: 
